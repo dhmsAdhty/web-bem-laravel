@@ -16,5 +16,6 @@ class BlogPost extends Model
         'slug',
         'thumbnail',
         'published_at',
+        'is_published',
     ];
 }

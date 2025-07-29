@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\BlogPostResource\Pages;
 use App\Filament\Resources\BlogPostResource\RelationManagers;
 use App\Models\BlogPost;
+use Illuminate\Support\Str;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -33,7 +34,11 @@ class BlogPostResource extends Resource
                             Forms\Components\TextInput::make('title')
                                 ->label('Judul')
                                 ->required()
-                                ->maxLength(255),
+                                ->maxLength(255)
+                                ->reactive()
+                                ->afterStateUpdated(function ($state, callable $set) {
+                                    $set('slug', Str::slug($state));
+                                }),
                             Forms\Components\TextInput::make('author')
                                 ->label('Penulis')
                                 ->maxLength(255)
@@ -42,9 +47,19 @@ class BlogPostResource extends Resource
                                 ->label('Slug')
                                 ->required()
                                 ->unique(table: 'blog_posts', column: 'slug', ignoreRecord: true)
-                                ->maxLength(255),
+                                ->maxLength(255)
+                                ->disabled()
+                                ->dehydrated(),
                             Forms\Components\DateTimePicker::make('published_at')
                                 ->label('Tanggal Publish'),
+                            Forms\Components\Select::make('is_published')
+                                ->label('Status')
+                                ->options([
+                                    0 => 'Draft',
+                                    1 => 'Publish',
+                                ])
+                                ->default(0)
+                                ->required(),
                         ]),
                         Forms\Components\Section::make([
                             Forms\Components\FileUpload::make('thumbnail')

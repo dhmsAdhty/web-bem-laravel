@@ -14,8 +14,10 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = BlogPost::where('is_published', true)->orderByDesc('published_at')->take(6)->get();
-        return view('welcome', compact('blogs'));
+        $blogs = BlogPost::where('is_published', true)->orderByDesc('published_at')->paginate(10);
+        $events = \App\Models\Event::orderByDesc('start_date')->take(5)->get();
+        $latestBlogs = BlogPost::where('is_published', true)->orderByDesc('published_at')->take(4)->get();
+        return view('blog.all', compact('blogs', 'events', 'latestBlogs'));
     }
 
     /**
@@ -24,13 +26,28 @@ class BlogController extends Controller
      */
     public function show($slug)
     {
-        $blog = BlogPost::where('slug', $slug)->firstOrFail();
+        $blog = BlogPost::where('slug', $slug)
+            ->with(['comments.user'])
+            ->firstOrFail();
         if (!$blog->is_published) {
             // Only allow admin/editor to preview unpublished posts
             if (!Auth::check() || !Auth::user()->hasAnyRole(['admin', 'editor'])) {
                 abort(404);
             }
         }
-        return view('welcome', compact('blog'));
+        // Artikel terkait
+        $relatedBlogs = BlogPost::where('is_published', true)
+            ->where('id', '!=', $blog->id)
+            ->orderByDesc('published_at')
+            ->take(4)
+            ->get();
+        // Postingan terbaru
+        $latestBlogs = BlogPost::where('is_published', true)
+            ->orderByDesc('published_at')
+            ->take(4)
+            ->get();
+        // Daftar event untuk sidebar
+        $events = \App\Models\Event::orderByDesc('start_date')->take(5)->get();
+        return view('blog.show', compact('blog', 'relatedBlogs', 'latestBlogs', 'events'));
     }
 }

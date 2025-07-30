@@ -33,7 +33,7 @@
           class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
       </a>
       <a class="text-gray-600 hover:text-blue-500 transition-colors duration-200 font-medium text-sm  tracking-wider relative group"
-        href="#blog">
+        href="/blog">
         Blog
         <span
           class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
@@ -68,7 +68,7 @@
         class="py-2 px-3 rounded-md text-gray-700 hover:text-blue-600 hover:bg-blue-50       transition-colors duration-200 font-medium">About</a>
       <a href="/event"
         class="py-2 px-3 rounded-md text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200 font-medium">Event</a>
-      <a href="#blog"
+      <a href="/blog"
         class="py-2 px-3 rounded-md text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200 font-medium">Blog</a>
       <a href="#contact"
         class="py-2 px-3 rounded-md text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200 font-medium">Contact</a>

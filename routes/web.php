@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\EventRegistrationExportController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -14,6 +15,10 @@ Route::get('/events', [HomeController::class, 'eventsIndex'])->name('events.inde
 
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
+
+Route::post('/blog/{blogs}/comments', [CommentController::class, 'store'])
+    ->middleware('auth')
+    ->name('comments.store');
 
 // Event detail route
 Route::get('/event/{id}', function($id) {

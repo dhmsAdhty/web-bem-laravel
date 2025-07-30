@@ -25,7 +25,7 @@
     </script>
 </head>
 
-<body class="bg-white text-gray-900" style="font-family: 'Poppins', Arial, sans-serif;">
+<body class="bg-white text-gray-900 overflow-x-hidden" style="font-family: 'Poppins', Arial, sans-serif;">
     {{-- Navbar Section --}}
     @section('navbar')
     <x-navbar.navbar />

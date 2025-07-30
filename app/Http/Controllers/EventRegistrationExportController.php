@@ -16,7 +16,8 @@ class EventRegistrationExportController extends Controller
             'event' => $event,
             'registrations' => $registrations,
         ]);
-        $filename = 'Pendaftar_' . str_replace(' ', '_', $event->title) . '.pdf';
+        $safeTitle = preg_replace('/[^a-zA-Z0-9-_]/', '', str_replace(' ', '_', $event->title));
+        $filename = 'Pendaftar_' . $safeTitle . '.pdf';
         return $pdf->download($filename);
     }
 }

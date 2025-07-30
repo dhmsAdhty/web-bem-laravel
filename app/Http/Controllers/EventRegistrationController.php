@@ -16,7 +16,7 @@ class EventRegistrationController extends Controller
         // Jika validasi gagal, Laravel akan otomatis redirect kembali dengan pesan error validasi.
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
+            'email' => 'required|email|max:255|email:rfc,dns',
             'university' => 'nullable|string|max:255',
             'phone' => 'required|string|max:20',
         ]);

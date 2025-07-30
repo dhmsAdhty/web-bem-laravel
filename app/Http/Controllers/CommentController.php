@@ -13,21 +13,22 @@ class CommentController extends Controller
      */
     public function store(Request $request, BlogPost $post)
     {
+        // Pastikan user login
+        if (!\Illuminate\Support\Facades\Auth::check()) {
+            abort(403);
+        }
         // Validasi input
         $request->validate([
             'body' => 'required|string|max:2500',
-            // Pastikan jika ada parent_id, id tersebut ada di tabel comments
             'parent_id' => 'nullable|exists:comments,id',
         ]);
-
-        // Buat komentar baru
+        // Sanitasi body komentar
+        $body = strip_tags($request->body);
         $post->comments()->create([
-            'user_id' => \Illuminate\Support\Facades\Auth::user()->id, // Mengambil id user yang sedang login
+            'user_id' => \Illuminate\Support\Facades\Auth::user()->id,
             'parent_id' => $request->parent_id,
-            'body' => $request->body,
+            'body' => $body,
         ]);
-
-        // Redirect kembali ke halaman post dengan pesan sukses
         return back()->with('success', 'Komentar berhasil ditambahkan.');
     }
 }

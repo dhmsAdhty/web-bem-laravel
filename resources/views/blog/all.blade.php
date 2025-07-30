@@ -12,11 +12,27 @@
             @forelse($blogs as $blog)
             <article
                 class="overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                @php
+                $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+                $thumbnail = $blog->thumbnail;
+                $isValidImage = false;
+                $isValidSlug = !empty($blog->slug) && preg_match('/^[a-zA-Z0-9-_]+$/', $blog->slug);
+                if ($thumbnail) {
+                $ext = strtolower(pathinfo($thumbnail, PATHINFO_EXTENSION));
+                $isValidImage = in_array($ext, $allowedExtensions);
+                }
+                @endphp
+                @if($isValidSlug)
                 <a href="{{ route('blog.show', $blog->slug) }}">
                     <img alt="{{ $blog->title }}"
-                        src="{{ $blog->thumbnail ? asset('storage/' . $blog->thumbnail) : 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80' }}"
+                        src="{{ $isValidImage ? asset('storage/' . $thumbnail) : 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80' }}"
                         class="h-48 w-full object-cover rounded-t-lg" />
                 </a>
+                @else
+                <img alt="{{ $blog->title }}"
+                    src="{{ $isValidImage ? asset('storage/' . $thumbnail) : 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80' }}"
+                    class="h-48 w-full object-cover rounded-t-lg" />
+                @endif
                 <div class="bg-white p-6 rounded-b-lg">
                     <div class="flex items-center text-sm text-gray-500 mb-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24"

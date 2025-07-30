@@ -26,6 +26,10 @@ class BlogController extends Controller
      */
     public function show($slug)
     {
+        // Validasi slug hanya karakter aman
+        if (!preg_match('/^[a-zA-Z0-9-_]+$/', $slug)) {
+            abort(404);
+        }
         $blog = BlogPost::where('slug', $slug)
             ->with(['comments.user'])
             ->firstOrFail();

@@ -229,7 +229,7 @@ $readingTime = ceil($wordCount / 200);
     <section class="flex-1">
         <h2 class="mb-8 text-2xl font-bold text-gray-900 dark:text-white" data-aos="fade-right">Postingan Terbaru</h2>
 
-        <div class="grid gap-8 sm:grid-cols-2">
+        <div class="grid gap-8 sm:grid-cols-3">
             @forelse($latestBlogs as $latestBlog)
             <div class="card group" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
                 <a href="{{ route('blog.show', $latestBlog->slug) }}" class="block overflow-hidden rounded-t-xl">
@@ -261,45 +261,6 @@ $readingTime = ceil($wordCount / 200);
             @endforelse
         </div>
     </section>
-
-    <aside class="w-full lg:w-80 lg:flex-shrink-0">
-        <div class="sticky top-24">
-            <h2 class="mb-6 text-2xl font-bold text-gray-900 dark:text-white" data-aos="fade-left">Event
-                Mendatang</h2>
-            <ul class="space-y-4">
-                @php $maxEvents = 3; @endphp
-                @forelse($events->take($maxEvents) as $event)
-                <li data-aos="fade-left" data-aos-delay="{{ $loop->index * 100 }}">
-                    <a href="{{ route('event.show', $event->id) }}"
-                        class="group flex gap-4 rounded-lg bg-gray-50 p-4 transition-all duration-300 hover:bg-white hover:shadow-lg dark:bg-gray-800 dark:hover:bg-gray-700 border border-transparent dark:hover:border-gray-600">
-                        <div
-                            class="flex h-12 w-12 flex-shrink-0 flex-col items-center justify-center rounded-md bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300">
-                            <span class="block text-xl font-bold">{{ Carbon::parse($event->start_date)->format('d')
-                                }}</span>
-                            <span class="block text-xs font-semibold uppercase">{{
-                                Carbon::parse($event->start_date)->format('M') }}</span>
-                        </div>
-                        <div>
-                            <h4
-                                class="font-semibold text-gray-800 group-hover:text-blue-600 dark:text-gray-200 dark:group-hover:text-blue-400 line-clamp-2">
-                                {{ $event->title }}</h4>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">{{ Str::limit($event->location, 25) }}
-                            </p>
-                        </div>
-                    </a>
-                </li>
-                @empty
-                <li class="text-gray-500 dark:text-gray-400" data-aos="fade-left">Belum ada event mendatang.</li>
-                @endforelse
-            </ul>
-            <div class="mt-6 text-center">
-                <a href="/event"
-                    class="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition-colors">
-                    Lihat Semua Event
-                </a>
-            </div>
-        </div>
-    </aside>
 </div>
 </div>
 </main>

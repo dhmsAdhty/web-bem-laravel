@@ -25,6 +25,10 @@ class HomeController extends Controller
 
     public function eventShow($id)
     {
+        // Validasi id harus integer
+        if (!is_numeric($id) || intval($id) != $id) {
+            abort(404);
+        }
         $event = Event::findOrFail($id);
         return view('event.show', compact('event'));
     }

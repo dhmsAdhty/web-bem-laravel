@@ -17,6 +17,12 @@ class HomeController extends Controller
         return view('welcome', compact('blogs', 'events'));
     }
 
+    public function eventsIndex()
+    {
+        $events = Event::orderByDesc('start_date')->get();
+        return view('event.show', compact('events'));
+    }
+
     public function eventShow($id)
     {
         $event = Event::findOrFail($id);

@@ -21,7 +21,12 @@ Route::get('/event/{id}', function($id) {
     return view('event.show', compact('event'));
 })->name('event.show');
 
+// Event route menu
+Route::get('/event', function() {
+    $events = \App\Models\Event::orderByDesc('start_date')->get();
+    return view('event.show', compact('events'));
+})->name('events.index');
+
 // Event registration route
 Route::get('/event/{id}/register', [\App\Http\Controllers\EventRegistrationController::class, 'create'])->name('event.register');
-
 Route::post('/event/{id}/register', [\App\Http\Controllers\EventRegistrationController::class, 'store'])->name('event.register.store');

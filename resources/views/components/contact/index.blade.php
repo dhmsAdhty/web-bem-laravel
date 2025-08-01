@@ -88,7 +88,7 @@
                         <label for="contact-name" class="sr-only">Nama</label>
                         <input type="text" id="contact-name" name="name" placeholder="Nama Anda"
                             value="{{ old('name') }}"
-                            class="w-full border @error('name') border-red-500 @else border-slate-300 @enderror bg-slate-50 rounded-lg px-4 py-3 text-slate-700 placeholder-slate-400
+                            class="w-full border-gray @error('name') border-red-500 @else  @enderror bg-slate-50 rounded-lg px-4 py-3 text-slate-700 placeholder-slate-400
                                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" required>
                         @error('name')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -98,7 +98,7 @@
                         <label for="contact-email" class="sr-only">Email</label>
                         <input type="email" id="contact-email" name="email" placeholder="Email Anda"
                             value="{{ old('email') }}"
-                            class="w-full border @error('email') border-red-500 @else border-slate-300 @enderror bg-slate-50 rounded-lg px-4 py-3 text-slate-700 placeholder-slate-400
+                            class="w-full border-gray @error('email') border-red-500 @else @enderror bg-slate-50 rounded-lg px-4 py-3 text-slate-700 placeholder-slate-400
                                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" required>
                         @error('email')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -107,7 +107,7 @@
                     <div>
                         <label for="contact-message" class="sr-only">Pesan</label>
                         <textarea id="contact-message" name="message" placeholder="Tulis pesan Anda di sini..." rows="5"
-                            class="w-full border @error('message') border-red-500 @else border-slate-300 @enderror bg-slate-50 rounded-lg px-4 py-3 text-slate-700 placeholder-slate-400
+                            class="w-full border-gray @error('message') border-red-500 @else  @enderror bg-slate-50 rounded-lg px-4 py-3 text-slate-700 placeholder-slate-400
                                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
                             required>{{ old('message') }}</textarea>
                         @error('message')

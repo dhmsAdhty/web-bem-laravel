@@ -28,15 +28,19 @@
       <div>
         <h3 class="text-base font-semibold text-white">Departemen</h3>
         <ul class="mt-4 space-y-3">
-          <li><a href="#" class="hover:text-blue-400 hover:translate-x-1 block transition-all">Badan Pengurus Harian</a>
+          <li><a href="/profile" class="hover:text-blue-400 hover:translate-x-1 block transition-all">Badan Pengurus
+              Harian</a>
           </li>
-          <li><a href="#" class="hover:text-blue-400 hover:translate-x-1 block transition-all">PSDM</a></li>
-          <li><a href="#" class="hover:text-blue-400 hover:translate-x-1 block transition-all">Kewirausahaan</a></li>
-          <li><a href="#" class="hover:text-blue-400 hover:translate-x-1 block transition-all">Internal & Eksternal</a>
+          <li><a href="/profile" class="hover:text-blue-400 hover:translate-x-1 block transition-all">PSDM</a></li>
+          <li><a href="/profile" class="hover:text-blue-400 hover:translate-x-1 block transition-all">Kewirausahaan</a>
           </li>
-          <li><a href="#" class="hover:text-blue-400 hover:translate-x-1 block transition-all">Minat & Bakat</a></li>
-          <li><a href="#" class="hover:text-blue-400 hover:translate-x-1 block transition-all">Kastrat</a>
-          <li><a href="#" class="hover:text-blue-400 hover:translate-x-1 block transition-all">Kominfo</a>
+          <li><a href="/profile" class="hover:text-blue-400 hover:translate-x-1 block transition-all">Internal &
+              Eksternal</a>
+          </li>
+          <li><a href="/profile" class="hover:text-blue-400 hover:translate-x-1 block transition-all">Minat & Bakat</a>
+          </li>
+          <li><a href="/profile" class="hover:text-blue-400 hover:translate-x-1 block transition-all">Kastrat</a>
+          <li><a href="/profile" class="hover:text-blue-400 hover:translate-x-1 block transition-all">Kominfo</a>
           </li>
         </ul>
       </div>

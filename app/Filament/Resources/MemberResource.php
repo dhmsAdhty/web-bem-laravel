@@ -42,11 +42,15 @@ class MemberResource extends Resource
                     ->label('Departemen')
                     ->required()
                     ->maxLength(100),
+                Forms\Components\TextInput::make('jabatan')
+                    ->label('Jabatan')
+                    ->required()
+                    ->maxLength(100),
                 Forms\Components\FileUpload::make('foto')
                     ->label('Foto')
                     ->image()
                     ->directory('anggota')
-                    ->maxSize(2048)
+                    ->maxSize(5048)
                     ->nullable(),
             ]);
     }
@@ -66,6 +70,7 @@ class MemberResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -85,8 +90,6 @@ class MemberResource extends Resource
     {
         return [
             'index' => Pages\ListMembers::route('/'),
-            'create' => Pages\CreateMember::route('/create'),
-            'edit' => Pages\EditMember::route('/{record}/edit'),
         ];
     }
 }

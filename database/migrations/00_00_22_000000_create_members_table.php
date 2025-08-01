@@ -10,6 +10,7 @@ return new class extends Migration {
             $table->string('name');
             $table->string('nim', 20);
             $table->string('prodi', 100);
+            $table->string('jabatan', 100);
             $table->string('departemen', 100);
             $table->string('foto')->nullable();
             $table->timestamps();

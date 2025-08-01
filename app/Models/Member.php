@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Member extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'nim', 'prodi', 'departemen', 'foto'];
+    protected $fillable = ['name', 'nim', 'prodi', 'jabatan', 'departemen', 'foto'];
 }

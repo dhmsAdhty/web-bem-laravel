@@ -21,12 +21,6 @@
           class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
       </a>
       <a class="text-gray-600 hover:text-blue-500 transition-colors duration-200 font-medium text-sm  tracking-wider relative group"
-        href="#about">
-        About
-        <span
-          class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
-      </a>
-      <a class="text-gray-600 hover:text-blue-500 transition-colors duration-200 font-medium text-sm  tracking-wider relative group"
         href="/event">
         Event
         <span
@@ -60,12 +54,10 @@
   <div id="mobile-menu"
     class="md:hidden hidden px-6 py-3 bg-white/20 backdrop-blur-md border-t border-gray-100 shadow-lg transition-all duration-300 ease-in-out transform opacity-0 -translate-y-4">
     <div class="flex flex-col space-y-3">
-      <a href="#home"
+      <a href="/"
         class="py-2 px-3 rounded-md text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200 font-medium">Home</a>
       <a href="/profile"
         class="py-2 px-3 rounded-md text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200 font-medium">Profil</a>
-      <a href="#about"
-        class="py-2 px-3 rounded-md text-gray-700 hover:text-blue-600 hover:bg-blue-50       transition-colors duration-200 font-medium">About</a>
       <a href="/event"
         class="py-2 px-3 rounded-md text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200 font-medium">Event</a>
       <a href="/blog"

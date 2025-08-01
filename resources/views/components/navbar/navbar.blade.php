@@ -15,7 +15,7 @@
           class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
       </a>
       <a class="text-gray-600 hover:text-blue-500 transition-colors duration-200 font-medium text-sm  tracking-wider relative group"
-        href="#profil">
+        href="/profile">
         Profil
         <span
           class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
@@ -39,7 +39,7 @@
           class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
       </a>
       <a class="text-gray-600 hover:text-blue-500 transition-colors duration-200 font-medium text-sm  tracking-wider relative group"
-        href="#contact">
+        href="/contact">
         Contact
         <span
           class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
@@ -62,7 +62,7 @@
     <div class="flex flex-col space-y-3">
       <a href="#home"
         class="py-2 px-3 rounded-md text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200 font-medium">Home</a>
-      <a href="#profil"
+      <a href="/profile"
         class="py-2 px-3 rounded-md text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200 font-medium">Profil</a>
       <a href="#about"
         class="py-2 px-3 rounded-md text-gray-700 hover:text-blue-600 hover:bg-blue-50       transition-colors duration-200 font-medium">About</a>
@@ -70,7 +70,7 @@
         class="py-2 px-3 rounded-md text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200 font-medium">Event</a>
       <a href="/blog"
         class="py-2 px-3 rounded-md text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200 font-medium">Blog</a>
-      <a href="#contact"
+      <a href="/publiccontact"
         class="py-2 px-3 rounded-md text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200 font-medium">Contact</a>
     </div>
   </div>

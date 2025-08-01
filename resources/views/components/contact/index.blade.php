@@ -9,6 +9,7 @@
 
         <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
 
+            {{-- Bagian Informasi Kontak (Tidak ada perubahan) --}}
             <div class="flex flex-col gap-10" data-aos="fade-right">
                 <div class="flex items-start gap-5">
                     <div class="flex-shrink-0">
@@ -70,25 +71,48 @@
                 </div>
             </div>
 
+            {{-- Bagian Form Kontak (Sudah diubah) --}}
             <div class="bg-white p-8 rounded-2xl shadow-xl" data-aos="fade-left" data-aos-delay="100">
-                <form class="flex flex-col gap-6">
+
+                {{-- Menampilkan pesan sukses setelah mengirim --}}
+                @if (session('success'))
+                <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-lg mb-6" role="alert">
+                    <p class="font-bold">Berhasil!</p>
+                    <p>{{ session('success') }}</p>
+                </div>
+                @endif
+
+                <form action="{{ route('contact.store') }}" method="POST" class="flex flex-col gap-5">
+                    @csrf {{-- Token Keamanan Laravel --}}
                     <div>
                         <label for="contact-name" class="sr-only">Nama</label>
-                        <input type="text" id="contact-name" placeholder="Nama Anda"
-                            class="w-full border border-slate-300 bg-slate-50 rounded-lg px-4 py-3 text-slate-700 placeholder-slate-400
-                                      focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                        <input type="text" id="contact-name" name="name" placeholder="Nama Anda"
+                            value="{{ old('name') }}"
+                            class="w-full border @error('name') border-red-500 @else border-slate-300 @enderror bg-slate-50 rounded-lg px-4 py-3 text-slate-700 placeholder-slate-400
+                                   focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" required>
+                        @error('name')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div>
                         <label for="contact-email" class="sr-only">Email</label>
-                        <input type="email" id="contact-email" placeholder="Email Anda"
-                            class="w-full border border-slate-300 bg-slate-50 rounded-lg px-4 py-3 text-slate-700 placeholder-slate-400
-                                      focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                        <input type="email" id="contact-email" name="email" placeholder="Email Anda"
+                            value="{{ old('email') }}"
+                            class="w-full border @error('email') border-red-500 @else border-slate-300 @enderror bg-slate-50 rounded-lg px-4 py-3 text-slate-700 placeholder-slate-400
+                                   focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" required>
+                        @error('email')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div>
                         <label for="contact-message" class="sr-only">Pesan</label>
-                        <textarea id="contact-message" placeholder="Tulis pesan Anda di sini..." rows="5"
-                            class="w-full border border-slate-300 bg-slate-50 rounded-lg px-4 py-3 text-slate-700 placeholder-slate-400
-                                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"></textarea>
+                        <textarea id="contact-message" name="message" placeholder="Tulis pesan Anda di sini..." rows="5"
+                            class="w-full border @error('message') border-red-500 @else border-slate-300 @enderror bg-slate-50 rounded-lg px-4 py-3 text-slate-700 placeholder-slate-400
+                                   focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                            required>{{ old('message') }}</textarea>
+                        @error('message')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
                     <button type="submit"
                         class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-semibold text-lg
@@ -97,6 +121,7 @@
                         Kirim Pesan
                     </button>
                 </form>
+                {{-- Script untuk WhatsApp sudah tidak diperlukan lagi --}}
             </div>
 
         </div>

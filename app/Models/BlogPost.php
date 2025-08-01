@@ -20,8 +20,4 @@ class BlogPost extends Model
         'is_published',
     ];
 
-    public function comments(): HasMany
-    {
-        return $this->hasMany(Comment::class, 'blog_id');
-    }
 }

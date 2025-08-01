@@ -56,7 +56,7 @@
         </div>
 
         <div class="text-center mt-12">
-            <a href="#"
+            <a href="/blog"
                 class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors">
                 Lihat Semua Berita
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24"

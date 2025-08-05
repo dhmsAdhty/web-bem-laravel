@@ -18,9 +18,6 @@ Route::get('/event-registrations/export/{eventId}', [EventRegistrationExportCont
 Route::get('/events', [HomeController::class, 'eventsIndex'])->name('events.index');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
-Route::post('/blog/{blogs}/comments', [CommentController::class, 'store'])
-    ->middleware('auth')
-    ->name('comments.store');
 // Event routes
 Route::prefix('event')->group(function() {
     Route::get('/', [EventController::class, 'index'])->name('events.index');

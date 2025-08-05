@@ -31,7 +31,6 @@ class BlogController extends Controller
             abort(404);
         }
         $blog = BlogPost::where('slug', $slug)
-            ->with(['comments.user'])
             ->firstOrFail();
         if (!$blog->is_published) {
             // Only allow admin/editor to preview unpublished posts

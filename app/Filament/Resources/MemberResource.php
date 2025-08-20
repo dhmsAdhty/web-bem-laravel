@@ -49,6 +49,7 @@ class MemberResource extends Resource
                 Forms\Components\FileUpload::make('foto')
                     ->label('Foto')
                     ->image()
+                    ->disk('public')
                     ->directory('anggota')
                     ->maxSize(5048)
                     ->nullable(),

@@ -66,6 +66,7 @@ class BlogPostResource extends Resource
                                 ->label('Thumbnail')
                                 ->image()
                                 ->directory('blog-thumbnails')
+                                ->disk('public')
                                 ->maxSize(2048),
                             Forms\Components\RichEditor::make('content')
                                 ->label('Isi Berita')

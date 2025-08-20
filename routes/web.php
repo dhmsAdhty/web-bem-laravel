@@ -20,7 +20,7 @@ Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 // Event routes
 Route::prefix('event')->group(function() {
-    Route::get('/', [EventController::class, 'index'])->name('events.index');
+    Route::get('/', [EventController::class, 'index']);
     Route::get('/{id}', [EventController::class, 'show'])
         ->whereNumber('id')->name('event.show');
     Route::get('/{id}/register', [\App\Http\Controllers\EventRegistrationController::class, 'create'])

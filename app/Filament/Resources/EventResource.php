@@ -47,6 +47,7 @@ class EventResource extends Resource
                             Forms\Components\FileUpload::make('banner')
                                 ->label('Banner')
                                 ->image()
+                                ->disk('public')
                                 ->directory('event-banners')
                                 ->maxSize(2048),
                             Forms\Components\Textarea::make('description')

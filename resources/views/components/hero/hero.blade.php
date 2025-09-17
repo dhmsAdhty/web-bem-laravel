@@ -1,4 +1,4 @@
-<section id="home" class="relative py-40 flex flex-col items-center text-center overflow-hidden">
+<section id="home" class="relative py-50 flex flex-col items-center text-center overflow-hidden">
     <!-- Background image -->
     <div class="absolute inset-0 h-full w-full">
         <img src="/assets/bg-new.png" alt="Background" class="h-full object-cover object-center"

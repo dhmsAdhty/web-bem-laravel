@@ -1,4 +1,4 @@
-<header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-gray-100">
+<header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-gray-100 transition-all duration-500 ease-in-out">
   <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 sm:px-8">
     <!-- Logo -->
     <a class="flex items-center gap-2" href="/">
@@ -15,7 +15,7 @@
           class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
       </a>
       <a class="text-gray-600 hover:text-blue-500 transition-colors duration-200 font-medium text-sm  tracking-wider relative group"
-        href="/profile">
+        href="{{ route('profile.index') }}">
         Profil
         <span
           class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
@@ -61,32 +61,63 @@
 </header>
 
 <script>
-  (function() {
-  function ready(fn) {
-    if (document.readyState != 'loading') fn();
-    else document.addEventListener('DOMContentLoaded', fn);
-  }
-  ready(function() {
-    var menuBtn = document.getElementById('menu-btn');
-    var menu = document.getElementById('mobile-menu');
-    if(menuBtn && menu) {
-      menuBtn.onclick = function(e) {
-        e.preventDefault();
-        if(menu.classList.contains('hidden')) {
-          menu.classList.remove('hidden');
-          setTimeout(function() {
-            menu.classList.remove('opacity-0', '-translate-y-4');
-            menu.classList.add('opacity-100', 'translate-y-0');
-          }, 10);
+  // Animasi navbar saat scroll
+  const header = document.querySelector("header");
+  let lastScroll = 0;
+
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.scrollY;
+
+    if (currentScroll > 150 && lastScroll <= 150) {
+      header.classList.add(
+        "fixed",
+        "top-5",
+        "mx-auto",
+        "rounded-xl",
+        "shadow-lg",
+        "w-11/12",
+        "transition-all",
+        "duration-500",
+        "ease-in-out"
+      );
+      header.classList.remove("top-0");
+    } else if (currentScroll <= 150 && lastScroll > 150) {
+      header.classList.add("top-0");
+      header.classList.remove(
+        "fixed",
+        "top-5",
+        "mx-auto",
+        "rounded-xl",
+        "shadow-lg",
+        "w-11/12"
+      );
+    }
+    lastScroll = currentScroll;
+  });
+
+  // Mobile menu animasi halus
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.getElementById("menu-btn");
+    const menu = document.getElementById("mobile-menu");
+
+    if (menuBtn && menu) {
+      menuBtn.addEventListener("click", () => {
+        if (menu.classList.contains("hidden")) {
+          menu.classList.remove("hidden");
+          requestAnimationFrame(() => {
+            menu.classList.remove("opacity-0", "-translate-y-4");
+            menu.classList.add("opacity-100", "translate-y-0", "transition-all", "duration-300", "ease-in-out");
+          });
         } else {
-          menu.classList.remove('opacity-100', 'translate-y-0');
-          menu.classList.add('opacity-0', '-translate-y-4');
-          setTimeout(function() {
-            menu.classList.add('hidden');
-          }, 300);
+          menu.classList.remove("opacity-100", "translate-y-0");
+          menu.classList.add("opacity-0", "-translate-y-4", "transition-all", "duration-300", "ease-in-out");
+          menu.addEventListener(
+            "transitionend",
+            () => menu.classList.add("hidden"),
+            { once: true }
+          );
         }
-      };
+      });
     }
   });
-})();
 </script>

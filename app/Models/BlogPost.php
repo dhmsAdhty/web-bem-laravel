@@ -20,4 +20,9 @@ class BlogPost extends Model
         'is_published',
     ];
 
+     // Cast ke Carbon (biar bisa format())
+    protected $casts = [
+        'published_at' => 'datetime',
+    ];
+
 }

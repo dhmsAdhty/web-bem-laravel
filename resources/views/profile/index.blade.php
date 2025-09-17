@@ -50,7 +50,7 @@
                 @php
                 $isLocalImage = $member->foto && !str_starts_with($member->foto, 'http');
                 $fotoUrl = $isLocalImage
-                ? asset('storage/anggota/' . basename($member->foto))
+                ? asset('storage/foto_anggota/' . basename($member->foto))
                 : $member->foto ??
                 'https://ui-avatars.com/api/?name=' .
                 urlencode($member->name) .

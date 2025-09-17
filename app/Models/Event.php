@@ -18,6 +18,11 @@ class Event extends Model
         'banner',
     ];
 
+    protected $casts = [
+        'start_date' => 'datetime',
+        'end_date'   => 'datetime',
+    ];
+
     public function registrations()
     {
         return $this->hasMany(EventRegistration::class);

@@ -1,4 +1,5 @@
 @extends('layouts.nav')
+<script src="//unpkg.com/alpinejs" defer></script>
 
 @section('content')
 <!-- Hero Section -->
